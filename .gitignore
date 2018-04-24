@@ -10,3 +10,4 @@
 .idea/
 lib/diff_images/*
 coverage
+*.png
