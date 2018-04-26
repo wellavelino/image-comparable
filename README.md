@@ -1,8 +1,15 @@
 # ImageComparable
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/image_comparable`. To experiment with that code, run `bin/console` for an interactive prompt.
 
-TODO: Delete this and the text above, and describe your gem
+Image comparable it's a gem inspired by NAKAL
+
+The principal idea is providing an easy way to develop your visual regression tests,
+ Image Comparable use Chunky::PNG a pure ruby lib to read and write images.
+
+
+# Features
+
+Compare pixel by pixel and generate an image_diff with the modifications
 
 ## Installation
 
