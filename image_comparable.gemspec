@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["wellington.avelino@outlook.com"]
 
   spec.summary       = %q{A gem to make visual test}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
+  spec.description   = %q{An easy way to create your visual regression tests}
   spec.homepage      = "https://github.com/wellavelino/image-comparable"
   spec.license       = "MIT"
 
