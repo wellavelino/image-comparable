@@ -1,7 +1,7 @@
 # ImageComparable
 
 
-Image comparable it's a gem inspired by NAKAL
+Image comparable it's a gem inspired by [NAKAL](https://github.com/rajdeepv/nakal)
 
 The principal idea is providing an easy way to develop your visual regression tests,
  Image Comparable use Chunky::PNG a pure ruby lib to read and write images.
