@@ -31,7 +31,7 @@ class ImageDiff
     result             = (diff.length.to_f / screenshot.pixels.length) * 100
 
     return unless result > acceptant_criteria
-    raise "The score result: #{result}%, is minor then " \
+    raise "The score result: #{result}%, is bigger then " \
             "acceptant_criteria: #{acceptant_criteria}%"
   end
 
