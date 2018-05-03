@@ -1,0 +1,58 @@
+require 'cucumber/rake/task'
+require 'open4'
+require 'rubygems'
+require 'rubocop/rake_task'
+
+desc('Execute RuboCop static code analysis')
+RuboCop::RakeTask.new(:rubocop) do |t|
+  t.patterns      = %w(**/*.rb)
+  t.options       = %w(-D)
+  t.fail_on_error = false
+end
+
+desc('install dependencies')
+task :install do
+  sh 'bundle install'
+end
+
+
+desc('Start Emulator')
+task :start_emulator, [:emulator_name] do |_task, args|
+  puts "Starting emulator #{args[:emulator_name]}"
+  sh "emulator -avd #{args[:emulator_name]} > /dev/null &"
+end
+
+desc('Starts the appium server')
+task :start_appium_server do
+  stop_appium_server
+  start_appium_server
+end
+
+desc('Stops the Appium server')
+task :stop_appium_server do
+  stop_appium_server
+end
+
+def stop_node_process(pid:)
+  Process.kill('TERM', pid)
+end
+
+def stop_appium_server
+  `pgrep node`.each_line.map(&:to_i).map { |pid| stop_node_process(pid: pid) }
+end
+
+def start_appium_server
+  command = "appium 1>&2"
+  puts "Starting Appium server "
+  Dir.chdir('./') {
+    pid, stdin, stdout, stderr = Open4::popen4(command)
+    sleep 20
+
+    if pid.zero?
+      puts 'Appium server did not start'
+      exit(false)
+    else
+      puts "Appium server is running with PID: #{pid}"
+    end
+  }
+end
