@@ -30,7 +30,28 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Add in you gemfile
+
+```
+gem 'image_comparable'
+```
+In top level of you class
+
+```
+require 'image_comparable'
+```
+You must have two images to compare such as baseline and screenshoot to compare.
+To execute the main method from ImageCompare follow the exemple bellow:
+
+```
+ImageComparable.execute(File.join('path/baseline.png'),File.join('path/screenshot.png'),1)
+```
+
+the first parameter is a path to you baseline image, second parameter is a path to you screenshot image,
+ and the third parameter is a acceptant criteria, this parameter its a guide to ImageComparable,
+ when the score difference is greater than acceptante criteria an error is raised
+
+
 
 ## Development
 
